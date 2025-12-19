@@ -28,6 +28,42 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
+[/home/basab/Development/Projects/employee-mgmt-system/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/basab/Development/Projects/employee-mgmt-system/Views/Admin/CreateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQ3JlYXRlRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/basab/Development/Projects/employee-mgmt-system/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/basab/Development/Projects/employee-mgmt-system/Views/Admin/EditEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRWRpdEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/basab/Development/Projects/employee-mgmt-system/Views/Admin/EmployeeList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRW1wbG95ZWVMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/basab/Development/Projects/employee-mgmt-system/Views/Admin/LeaveRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vTGVhdmVSZXF1ZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/basab/Development/Projects/employee-mgmt-system/Views/Employee/ApplyLeave.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRW1wbG95ZWUvQXBwbHlMZWF2ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/basab/Development/Projects/employee-mgmt-system/Views/Employee/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRW1wbG95ZWUvRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/basab/Development/Projects/employee-mgmt-system/Views/Employee/MyLeaves.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRW1wbG95ZWUvTXlMZWF2ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/basab/Development/Projects/employee-mgmt-system/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
