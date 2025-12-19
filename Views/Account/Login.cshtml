@@ -4,32 +4,36 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="row justify-content-center mt-5">
-    <div class="col-md-4">
-        <div class="card shadow">
-            <div class="card-header bg-primary text-white text-center">
-                <h3>Login</h3>
+<div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-dark text-white text-center py-3">
+                <h3 class="mb-0">Welcome Back</h3>
+                <small>Login to ELMS</small>
             </div>
-            <div class="card-body">
+            <div class="card-body p-4">
                 <form asp-action="Login" method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
                     
-                    <div class="mb-3">
-                        <label asp-for="Email" class="form-label"></label>
-                        <input asp-for="Email" class="form-control" />
+                    <div class="form-floating mb-3">
+                        <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                        <label asp-for="Email">Email Address</label>
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     
-                    <div class="mb-3">
-                        <label asp-for="Password" class="form-label"></label>
-                        <input asp-for="Password" class="form-control" type="password" />
+                    <div class="form-floating mb-3">
+                        <input asp-for="Password" class="form-control" type="password" placeholder="Password" />
+                        <label asp-for="Password">Password</label>
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
 
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Login</button>
                     </div>
                 </form>
+            </div>
+            <div class="card-footer text-center text-muted py-3">
+                <small>&copy; 2025 ELMS</small>
             </div>
         </div>
     </div>

@@ -4,81 +4,101 @@
     ViewData["Title"] = "Employee Dashboard";
 }
 
-<h2>My Dashboard</h2>
-<hr />
+<div class="row mb-4">
+    <div class="col-12">
+        <h2 class="fw-bold">My Dashboard</h2>
+        <p class="text-muted">Welcome back! Here is your leave summary.</p>
+    </div>
+</div>
 
-<div class="row">
+<div class="row g-3 mb-5">
     <div class="col-md-3">
-        <div class="card text-white bg-primary mb-3">
-            <div class="card-header">Total Leaves</div>
-            <div class="card-body">
-                <h5 class="card-title">@ViewBag.Total</h5>
+        <div class="card shadow-sm border-0 bg-primary text-white h-100">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold">@ViewBag.Total</h1>
+                <span>Total Requests</span>
             </div>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card text-white bg-warning mb-3">
-            <div class="card-header">Pending</div>
-            <div class="card-body">
-                <h5 class="card-title">@ViewBag.Pending</h5>
+        <div class="card shadow-sm border-0 bg-warning text-dark h-100">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold">@ViewBag.Pending</h1>
+                <span>Pending</span>
             </div>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card text-white bg-success mb-3">
-            <div class="card-header">Approved</div>
-            <div class="card-body">
-                <h5 class="card-title">@ViewBag.Approved</h5>
+        <div class="card shadow-sm border-0 bg-success text-white h-100">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold">@ViewBag.Approved</h1>
+                <span>Approved</span>
             </div>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card text-white bg-danger mb-3">
-            <div class="card-header">Rejected</div>
-            <div class="card-body">
-                <h5 class="card-title">@ViewBag.Rejected</h5>
+        <div class="card shadow-sm border-0 bg-danger text-white h-100">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold">@ViewBag.Rejected</h1>
+                <span>Rejected</span>
             </div>
         </div>
     </div>
 </div>
 
-<div class="d-flex justify-content-between align-items-center mt-4 mb-2">
-    <h4>Recent Applications</h4>
-    <a asp-action="ApplyLeave" class="btn btn-primary">Apply for Leave</a>
+<div class="card shadow-sm border-0">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 fw-bold">Recent Applications</h5>
+        <a asp-action="ApplyLeave" class="btn btn-primary btn-sm px-4 rounded-pill">Apply for Leave</a>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0 align-middle">
+                <thead class="bg-light text-muted">
+                    <tr>
+                        <th class="ps-4">Type</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                        <th>Applied On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="ps-4 fw-bold text-dark">@item.LeaveType</td>
+                            <td>
+                                <span class="d-block text-dark">@item.StartDate.ToShortDateString() - @item.EndDate.ToShortDateString()</span>
+                                <small class="text-muted">@((item.EndDate - item.StartDate).TotalDays + 1) Days</small>
+                            </td>
+                            <td>
+                                @if(item.Status == "Pending")
+                                {
+                                    <span class="badge bg-warning text-dark rounded-pill">Pending</span>
+                                }
+                                else if(item.Status == "Approved")
+                                {
+                                    <span class="badge bg-success rounded-pill">Approved</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger rounded-pill">Rejected</span>
+                                }
+                            </td>
+                            <td class="text-muted">@item.AppliedAt.ToShortDateString()</td>
+                        </tr>
+                    }
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center py-4 text-muted">No recent leave requests found.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer bg-white text-center py-3">
+        <a asp-action="MyLeaves" class="text-decoration-none fw-bold">View All Requests &rarr;</a>
+    </div>
 </div>
-
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Type</th>
-            <th>Duration</th>
-            <th>Status</th>
-            <th>Applied On</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.LeaveType</td>
-                <td>@item.StartDate.ToShortDateString() - @item.EndDate.ToShortDateString()</td>
-                <td>
-                    @if(item.Status == "Pending")
-                    {
-                        <span class="badge bg-warning text-dark">Pending</span>
-                    }
-                    else if(item.Status == "Approved")
-                    {
-                        <span class="badge bg-success">Approved</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-danger">Rejected</span>
-                    }
-                </td>
-                <td>@item.AppliedAt.ToShortDateString()</td>
-            </tr>
-        }
-    </tbody>
-</table>
-<a asp-action="MyLeaves">View All</a>

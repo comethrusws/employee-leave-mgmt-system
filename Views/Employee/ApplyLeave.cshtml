@@ -4,43 +4,51 @@
     ViewData["Title"] = "Apply Leave";
 }
 
-<h2>Apply for Leave</h2>
-<hr />
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="ApplyLeave" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="mb-3">
-                <label asp-for="LeaveType" class="form-label">Leave Type</label>
-                <select asp-for="LeaveType" class="form-control">
-                    <option value="Sick">Sick Leave</option>
-                    <option value="Casual">Casual Leave</option>
-                    <option value="Annual">Annual Leave</option>
-                </select>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow border-0">
+            <div class="card-header bg-primary text-white py-3">
+                <h4 class="mb-0">New Leave Application</h4>
             </div>
-            
-            <div class="mb-3">
-                <label asp-for="StartDate" class="form-label">Start Date</label>
-                <input asp-for="StartDate" class="form-control" type="date" />
-                <span asp-validation-for="StartDate" class="text-danger"></span>
-            </div>
+            <div class="card-body p-4">
+                <form asp-action="ApplyLeave" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-            <div class="mb-3">
-                <label asp-for="EndDate" class="form-label">End Date</label>
-                <input asp-for="EndDate" class="form-control" type="date" />
-                <span asp-validation-for="EndDate" class="text-danger"></span>
-            </div>
+                    <div class="mb-4">
+                        <label asp-for="LeaveType" class="form-label fw-bold">Type of Leave</label>
+                        <select asp-for="LeaveType" class="form-select form-select-lg">
+                            <option value="Sick">Sick Leave</option>
+                            <option value="Casual">Casual Leave</option>
+                            <option value="Annual">Annual Leave</option>
+                        </select>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label asp-for="StartDate" class="form-label fw-bold">Start Date</label>
+                            <input asp-for="StartDate" class="form-control" type="date" />
+                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="EndDate" class="form-label fw-bold">End Date</label>
+                            <input asp-for="EndDate" class="form-control" type="date" />
+                            <span asp-validation-for="EndDate" class="text-danger"></span>
+                        </div>
+                    </div>
 
-            <div class="mb-3">
-                <label asp-for="Reason" class="form-label">Reason</label>
-                <textarea asp-for="Reason" class="form-control" rows="3"></textarea>
-                <span asp-validation-for="Reason" class="text-danger"></span>
-            </div>
+                    <div class="mb-4">
+                        <label asp-for="Reason" class="form-label fw-bold">Reason for Leave</label>
+                        <textarea asp-for="Reason" class="form-control" rows="4" placeholder="Briefly explain why you need this leave..."></textarea>
+                        <span asp-validation-for="Reason" class="text-danger"></span>
+                    </div>
 
-            <button type="submit" class="btn btn-primary">Submit Application</button>
-            <a asp-action="Dashboard" class="btn btn-secondary">Cancel</a>
-        </form>
+                    <div class="d-flex justify-content-end gap-2">
+                        <a asp-action="Dashboard" class="btn btn-light border">Cancel</a>
+                        <button type="submit" class="btn btn-primary px-4">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
