@@ -4,26 +4,36 @@
     ViewData["Title"] = "Create Employee";
 }
 
-<h2>Add New Employee</h2>
-<hr />
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-md-6">
-        <form asp-action="CreateEmployee" method="post">
-            <div class="mb-3">
-                <label asp-for="FullName" class="form-label"></label>
-                <input asp-for="FullName" class="form-control" />
+        <div class="card shadow border-0">
+             <div class="card-header bg-dark text-white py-3">
+                <h4 class="mb-0">Add New Employee</h4>
             </div>
-            <div class="mb-3">
-                <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" />
+            <div class="card-body p-4">
+                <form asp-action="CreateEmployee" method="post">
+                    <div class="mb-3">
+                        <label asp-for="FullName" class="form-label fw-bold">Full Name</label>
+                        <input asp-for="FullName" class="form-control" placeholder="John Doe" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label fw-bold">Email Address</label>
+                        <input asp-for="Email" class="form-control" placeholder="john@company.com" />
+                         <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="PasswordHash" class="form-label fw-bold">Password</label>
+                        <input asp-for="PasswordHash" class="form-control" type="password" required />
+                        <div class="form-text">Set a secure initial password.</div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                        <a asp-action="EmployeeList" class="btn btn-light border">Cancel</a>
+                    </div>
+                </form>
             </div>
-            <div class="mb-3">
-                <label asp-for="PasswordHash" class="form-label">Password</label>
-                <input asp-for="PasswordHash" class="form-control" type="password" required />
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Create</button>
-            <a asp-action="EmployeeList" class="btn btn-secondary">Cancel</a>
-        </form>
+        </div>
     </div>
 </div>
