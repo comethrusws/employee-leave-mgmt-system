@@ -1,0 +1,49 @@
+@model EmployeeManagementSystem.Models.LeaveRequest
+
+@{
+    ViewData["Title"] = "Apply Leave";
+}
+
+<h2>Apply for Leave</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="ApplyLeave" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="LeaveType" class="form-label">Leave Type</label>
+                <select asp-for="LeaveType" class="form-control">
+                    <option value="Sick">Sick Leave</option>
+                    <option value="Casual">Casual Leave</option>
+                    <option value="Annual">Annual Leave</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="StartDate" class="form-label">Start Date</label>
+                <input asp-for="StartDate" class="form-control" type="date" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EndDate" class="form-label">End Date</label>
+                <input asp-for="EndDate" class="form-control" type="date" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Reason" class="form-label">Reason</label>
+                <textarea asp-for="Reason" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Reason" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Application</button>
+            <a asp-action="Dashboard" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

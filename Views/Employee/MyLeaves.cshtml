@@ -1,0 +1,45 @@
+@model IEnumerable<EmployeeManagementSystem.Models.LeaveRequest>
+
+@{
+    ViewData["Title"] = "My Leave Requests";
+}
+
+<h2>My Leave Requests</h2>
+<a asp-action="ApplyLeave" class="btn btn-primary mb-3">Apply New</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Applied On</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.LeaveType</td>
+                <td>@item.StartDate.ToShortDateString() - @item.EndDate.ToShortDateString()</td>
+                <td>@item.Reason</td>
+                <td>
+                    @if(item.Status == "Pending")
+                    {
+                        <span class="badge bg-warning text-dark">Pending</span>
+                    }
+                    else if(item.Status == "Approved")
+                    {
+                        <span class="badge bg-success">Approved</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Rejected</span>
+                    }
+                </td>
+                <td>@item.AppliedAt.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
